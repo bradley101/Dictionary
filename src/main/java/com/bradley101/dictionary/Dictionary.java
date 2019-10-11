@@ -4,17 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <p>Don't confuse with
- * @see java.util.Dictionary
- * </p>
- * <p>The original source code for <b>Dictionary</b> class
+ * Don't confuse with java.util.Dictionary. The original source code for <b>Dictionary</b> class
  * that performs the task for storing a value for
- * multiple keys (one or more)</p>
- *
- * <p>Dictionary is a Map that can store a value corresponding
- * to multiple keys just like the Python dict(). See here <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Python Dictionary</a></p>
- *
- * <p>For usage see the methods below.</p>
+ * multiple keys (one or more)
+ * Dictionary is a Map that can store a value corresponding
+ * to multiple keys just like the Python dict(). See here <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Python Dictionary</a>
+ * For usage see the methods below.
  *
  * <p>
  * @author Shantanu Banerjee
@@ -31,7 +26,7 @@ public class Dictionary {
 	// A default constructor, just scaffold stuff.
 	public Dictionary() {
 	}
-	
+
 	/**
 	 * Suppress parameterized constructor for more clear implementation
 	 * Suppose we are in a particular sub-dictionary then
@@ -45,7 +40,7 @@ public class Dictionary {
 		this();
 		this.parentKey = parentKey;
 	}
-	
+
 	/**
 	 * Used to go lower into the key hierarchy and creates the sub-dictionary
 	 * Or if a sub-dict with a key is already in that level, it just returns that.
@@ -74,7 +69,7 @@ public class Dictionary {
 		subDict.put(key, new Dictionary(key));
 		return subDict.get(key);
 	}
-	
+
 	/**
 	 * <p>Returns the value of the sub-dictionary iff the sub-dictionary does not contain
 	 * another level of sub-dict i.e. it is the last level of Dictionary and contains the actual Value
@@ -82,12 +77,12 @@ public class Dictionary {
 	 *
 	 * <p>You can typecast the value in your own class type you need</p>
 	 *
-	 * @return Object
+	 * @return Object value of the sub-dict
 	 */
 	public Object val() {
 		return value;
 	}
-	
+
 	/**
 	 * <p>Sets the value of the sub-dict. Use it if you have used reached the leaf of your key-chain.
 	 * If you create a sub-dict in the same level, the value gets changed to null.</p>
