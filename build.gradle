@@ -10,9 +10,11 @@ plugins {
     id 'java-library'
 }
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'java'
+apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
-group = 'com.bradley101.dictionary'
+// group = 'com.bradley101.dictionary'
 version = '1.0'
 
 repositories {
@@ -21,52 +23,45 @@ repositories {
 
 dependencies {
 
-    api 'org.apache.commons:commons-math3:3.6.1'
-
-    implementation 'com.google.guava:guava:28.0-jre'
-
-    testImplementation 'junit:junit:4.12'
-}
-archivesBaseName = 'com.bradley101.dictionary'
-def pomConfig = {
-    licenses {
-        license {
-            name "The Apache Software License, Version 2.0"
-            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
-            distribution "repo"
-        }
-    }
-    developers {
-        developer {
-            id "bradley101"
-            name "Shantanu Banerjee"
-            email "shantanu.banerjeee@gmail.com"
-        }
-    }
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from 'build/docs/javadoc'
 }
 
 task sourcesJar(type: Jar) {
-    from sourceSets.main.allSource
-    classifier = 'sources'
+    from sourceSets.main.allJava
+    archiveClassifier = 'sources'
 }
 
+task javadocJar(type: Jar) {
+    from javadoc
+    archiveClassifier = 'javadoc'
+}
+archivesBaseName="com.bradley101.dictionary"
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            // artifactId = 'com.bradley101.dictionary'
             from components.java
             artifact sourcesJar
             artifact javadocJar
 
-            pom.withXml {
-                def root = asNode()
-                root.appendNode('description', 'A gradle plugin for multiple key to value map objects')
-                root.children().last() + pomConfig
+            pom {
+                name = "Dictionary"
+                description = "A multiple ket to value map library and API for your project"
+                url = "https://github.com/bradley101/Dictionary"
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = "bradley101"
+                        name = "Shantanu Banerjee"
+                        email = "shantanu.banerjeee@gmail.com"
+                    }
+                }
             }
+
         }
     }
 }
@@ -87,4 +82,5 @@ bintray {
             vcsTag = version
         }
     }
+    configurations = ['archives']
 }
