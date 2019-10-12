@@ -12,9 +12,9 @@ import java.util.Map;
  * For usage see the methods below.
  *
  * <p>
- * @author Shantanu Banerjee
- * @email hi@shantanubanerjee.com
- * @date 09 Oct 2019
+ * @author Shantanu Banerjee hi@shantanubanerjee.com
+ * Written on: 09 Oct 2019
+ *
  * </p>
  */
 
