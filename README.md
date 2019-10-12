@@ -58,4 +58,4 @@ For more information on installation, see the Bintray package page [here](https:
 ## Contribute
 You are truly most welcome. Please read the CONTRIBUTING.md file for more information.
 ## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the Apache License - see the LICENSE.md file for details.
