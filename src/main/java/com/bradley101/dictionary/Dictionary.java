@@ -23,7 +23,9 @@ public class Dictionary {
 	private Object value;
 	private Object parentKey;
 
-	// A default constructor, just scaffold stuff.
+	/**
+     * A default scaffold constructor
+     */
 	public Dictionary() {
 	}
 
