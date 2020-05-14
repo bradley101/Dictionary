@@ -26,7 +26,7 @@ For Gradle: Add the following
 
     dependencies {
 	    ..
-	    compile 'com.bradley101.dictionary:dictionary:1.0'
+	    compile 'com.bradley101.dictionary:dictionary:1.1'
 	}
 Download Jar from [here](https://dl.bintray.com/bradley101/Dictionary/com/bradley101/dictionary/dictionary/1.0/dictionary-1.0.jar).
 For more information on installation, see the Bintray package page [here](https://bintray.com/bradley101/Dictionary/Dictionary).
